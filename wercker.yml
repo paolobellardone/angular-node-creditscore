@@ -12,6 +12,17 @@ push-to-releases:
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         cmd: node /pipeline/source/app.js
 
+push-to-my-docker:
+  steps:
+    # Push to public docker repo Container Registry (CR)
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        email: $EMAIL
+        repository: turing/bar
+        tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        cmd: node /pipeline/source/app.js
+
 deploy-to-oke:
   box:
         id: alpine
