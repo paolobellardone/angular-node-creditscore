@@ -105,14 +105,14 @@ deploy-to-k8s:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create secret docker-registry wrelease --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL --namespace=$WERCKER_APPLICATION_OWNER_NAME; echo 'secret step'
+        command: create secret docker-registry wrelease --docker-username=$DOCKER_USERNAME --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL --namespace=default; echo 'secret step'
     
     - kubectl:
         name: create deplyoment
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f $WERCKER_ROOT/kubernetes-deployment.yml --namespace=$WERCKER_APPLICATION_OWNER_NAME
+        command: apply -f $WERCKER_ROOT/kubernetes-deployment.yml --namespace=default
 
     - script:
         name: "Visualise Ingress config"
@@ -123,7 +123,7 @@ deploy-to-k8s:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: apply -f $WERCKER_ROOT/ingress.yml --namespace=$WERCKER_APPLICATION_OWNER_NAME
+        command: apply -f $WERCKER_ROOT/ingress.yml --namespace=default
         
     - kubectl:
         name: get LoadBalancer public IP address
