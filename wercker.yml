@@ -90,11 +90,11 @@ deploy-to-k8s:
         code: cat kubernetes-deployment.yml
 
     - kubectl:
-        name: cluster-info    
+        name: cluster info    
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: dump
+        command: cluster-info dump
  
     - kubectl:
         name: create namespace    
