@@ -19,7 +19,8 @@ push-to-my-docker:
         username: $USERNAME
         password: $PASSWORD
         email: $EMAIL
-        repository: $USERNAME
+        registry: https://registry.hub.docker.com
+        repository: $USERNAME/pipeline
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         cmd: node /pipeline/source/app.js
 
