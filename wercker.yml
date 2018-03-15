@@ -103,6 +103,10 @@ deploy-to-k8s:
         insecure-skip-tls-verify: true
         command: delete namespace $WERCKER_APPLICATION_OWNER_NAME --ignore-not-found=true
 
+    - script:
+        name: wait to delete namespace
+        code: sleep 60
+
     - kubectl:
         name: create namespace    
         server: $KUBERNETES_MASTER
