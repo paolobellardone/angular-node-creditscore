@@ -12,7 +12,7 @@ spec:
   tls:
   - secretName: tls-secret
   rules:
-  - host: worker-node.localdomain
+  - host:
     http:
       paths:
       - path: /$WERCKER_APPLICATION_OWNER_NAME/
