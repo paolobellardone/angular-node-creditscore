@@ -12,7 +12,8 @@ spec:
   tls:
   - secretName: tls-secret
   rules:
-  - http:
+  - host: workernode-kubernetescluster-fyq6koyl.srv.ravcloud.com
+    http:
       paths:
       - path: /$WERCKER_APPLICATION_OWNER_NAME/
         backend:
