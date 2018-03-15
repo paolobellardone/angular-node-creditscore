@@ -9,9 +9,9 @@ push-to-my-docker:
   steps:
     # Push to public docker repo Container Registry (CR)
     - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
-        email: $EMAIL
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        email: $DOCKER_EMAIL
         registry: https://registry.hub.docker.com/v2
         repository: $WERCKER_APPLICATION_OWNER_NAME/$WERCKER_APPLICATION_NAME
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
